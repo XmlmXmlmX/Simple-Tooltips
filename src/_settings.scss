@@ -1,0 +1,10 @@
+$simple-tooltip-prefix: stt !default;
+$simple-tooltip-color: #ecf0f1 !default;
+$simple-tooltip-bg-color: #34495e !default;
+$simple-tooltip-zindex: 999 !default;
+$simple-tooltip-size: 14rem !default;
+$simple-tooltip-border-radius: .25rem !default;
+$simple-tooltip-fade-delay: 500ms !default;
+$simple-tooltip-angle-size: .5rem !default;
+$simple-tooltip-box-shadow: 0 0 2rem .25rem lighten($simple-tooltip-bg-color, 50%);
+$simple-tooltip-font-size: .8em;

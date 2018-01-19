@@ -1,0 +1,37 @@
+.buttons {
+    padding: 2rem;
+}
+
+button {
+    color: white;
+    padding: 1em;
+    border: 0;
+    margin: .5rem;
+    border-radius: .125em;
+    outline: none;
+    &.btn-type-a,
+    & {
+        background-color: #3498db;
+    }
+    &.btn-type-b {
+        background-color: #1abc9c;
+    }
+    &.btn-type-c {
+        background-color: #f39c12;
+    }
+    &.btn-type-d {
+        background-color: #9b59b6;
+    }
+    &.btn-type-e {
+        background-color: #e74c3c;
+    }
+    &.btn-type-f {
+        background-color: #95a5a6;
+    }
+    &.btn-type-g {
+        background-color: #2ecc71;
+    }
+    &.btn-type-h {
+        background-color: #f1c40f;
+    }
+}
