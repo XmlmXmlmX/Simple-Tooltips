@@ -1,76 +1,184 @@
+// ### Variables ###
 $simple-tooltip-prefix: stt;
 $simple-tooltip-color: #ecf0f1;
 $simple-tooltip-bg-color: #34495e;
 $simple-tooltip-zindex: 999;
+$simple-tooltip-size: 14rem;
+$simple-tooltip-border-radius: .25rem;
+$simple-tooltip-fade-delay: 500ms;
+$simple-tooltip-angle-size: .5rem;
+
+// ### Keyframes ###
+@keyframes #{$simple-tooltip-prefix}-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 [data-#{$simple-tooltip-prefix}-text] {
   position: relative;
+  box-sizing: border-box;
   
-  &:after, &:before {
+  &::after, &::before {
     display: none;
     position: absolute;
     top: calc(100% + .5rem);
+    left: 50%;
+    box-sizing: border-box;
   }
   
-  &:after {
+  &::after {
+    float: left;
     content: attr(data-#{$simple-tooltip-prefix}-text);
     position: absolute;
     padding: 1em;
     height: auto;
-    width: auto;
-    min-width: 12rem;
     background-color: $simple-tooltip-bg-color;
     color: $simple-tooltip-color;
-    box-shadow: 0 0 1.5rem .5rem #ddd;
+    box-shadow: 0 0 2rem .25rem lighten($simple-tooltip-bg-color, 50%);
     z-index: $simple-tooltip-zindex - 1;
     font-size: .8em;
+    width: $simple-tooltip-size;
+    margin: 0 0 0 calc(#{$simple-tooltip-size} / -2);
+    border-radius: $simple-tooltip-border-radius;
   }
   
-  &:before {
+  &::before {
     content: '';
-    border: solid .75rem;
+    border: solid $simple-tooltip-angle-size;
     border-color: transparent transparent $simple-tooltip-bg-color transparent;
     height: 0;
     width: 0;
-    margin: -1.5rem 0 0 .5rem;
+    margin: -($simple-tooltip-angle-size * 2) 0 0 -#{$simple-tooltip-angle-size};
     z-index: $simple-tooltip-zindex;
   }
   
   &:hover, &:focus, &:active {
-    &:after, &:before {
+    &::after, &::before {
       display: block;
     }
   }
 }
 
-[data-#{$simple-tooltip-prefix}-animate] {
-  &:before, &:after {
-    -webkit-transition: all 250ms;
-    transition: all 250ms;
+[data-#{$simple-tooltip-prefix}-fade] {
+  &::before, &::after {
     opacity: 0;
-    display: block;
+    animation: #{$simple-tooltip-prefix}-fade $simple-tooltip-fade-delay ease-in-out;
   }
   
   &:hover, &:focus, &:active {
-    &:before, &:after {
+    &::before, &::after {
       opacity: 1;
-      -webkit-transition: all 500ms;
-      transition: all 500ms;
     }
   }
 }
 
+[data-#{$simple-tooltip-prefix}-position=top] {
+  &::after, &::before {
+    left: 50%;
+  }
+  
+  &::after {
+    top: -100%;
+    height: auto;
+    width: $simple-tooltip-size;
+    margin: 0 0 0 calc(#{$simple-tooltip-size} / -2);
+  }
+  
+  &::before {
+    top: 0;
+    border-color: $simple-tooltip-bg-color transparent transparent transparent;
+    height: 0;
+    width: 0;
+    margin: -($simple-tooltip-angle-size + .1) 0 0 -($simple-tooltip-angle-size);
+  }
+}
+
+[data-#{$simple-tooltip-prefix}-position=right] {  
+  &::after, &::before {
+    top: .25rem;
+    left: 100%;
+    right: auto;
+  }
+    
+  &::after {
+    margin: 0 0 0 .5rem;
+    height: auto;
+    line-height: 1rem;
+  }
+  
+  &::before {
+    border-color: transparent $simple-tooltip-bg-color transparent transparent;
+    top: calc(50% - #{$simple-tooltip-angle-size});
+    margin: 0 0 0 (-$simple-tooltip-angle-size);
+  }
+}
+
+[data-#{$simple-tooltip-prefix}-position=left] {
+  &::after, &::before {
+    top: .25rem;
+    right: 100%;
+    left: auto;
+  }
+    
+  &::after {
+    margin: 0 $simple-tooltip-angle-size 0 0;
+    height: auto;
+    line-height: 1rem;
+  }
+  
+  &::before {
+    border-color: transparent transparent transparent $simple-tooltip-bg-color;
+    top: calc(50% - #{$simple-tooltip-angle-size});
+    margin: 0;
+    left: -($simple-tooltip-angle-size);
+  }
+}
+
+.buttons {
+  padding: 2rem;
+}
+
 button {
-  background-color: #3498db;
   color: white;
   padding: 1em;
   border: 0;
+  margin: .5rem;
+  border-radius: .125em;
+  outline: none;
+  
+  &.btn-type-a, & {
+    background-color: #3498db;
+  }
   
   &.btn-type-b {
-    background-color: #f44ddd;
+    background-color: #1abc9c;
   }
   
   &.btn-type-c {
-    background-color: #07fddf;
+    background-color: #f39c12;
+  }
+  
+  &.btn-type-d {
+    background-color: #9b59b6;
+  }
+  
+  &.btn-type-e {
+    background-color: #e74c3c;
+  }
+  
+  &.btn-type-f {
+    background-color: #95a5a6;
+  }
+  
+  &.btn-type-g {
+    background-color: #2ecc71;
+  }
+  
+  &.btn-type-h {
+    background-color: #f1c40f;
   }
 }
