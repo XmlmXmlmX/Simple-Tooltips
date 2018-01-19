@@ -6,7 +6,7 @@
         "start": "npm run serve",
         "build": "node build.js",
         "prepublishOnly": "npm run build",
-        "serve": "serve | start http://localhost:5000/test/index.html"
+        "serve": "serve | start http://localhost:5000/docs/index.html"
     },
     "author": {
         "name": "Sebastian Hösl",

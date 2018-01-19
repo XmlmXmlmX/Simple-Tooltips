@@ -7,6 +7,6 @@ postscss([
     from: 'src/main.scss',
     to: 'dist/simple-tooltips.css'
 }, {
-    from: 'test/preview.scss',
-    to: 'test/preview.css'
+    from: 'docs/preview.scss',
+    to: 'docs/preview.css'
 }]);
