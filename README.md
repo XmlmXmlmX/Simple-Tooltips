@@ -17,7 +17,7 @@ npm install simple-tooltips --save
 or
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-tooltips@1.0.0-beta1/dist/simple-tooltips.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-tooltips/dist/simple-tooltips.css" />
 ```
 
 and use it like this
