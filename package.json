@@ -1,7 +1,7 @@
 {
     "name": "simple-tooltips",
     "description": "Create pure CSS tooltips without a single line of JavaScript code!",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "scripts": {
         "start": "npm run build | npm run serve",
         "build": "node build.js",
