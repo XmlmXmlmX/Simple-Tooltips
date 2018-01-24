@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/simple-tooltips.png)](https://nodei.co/npm/simple-tooltips/)
+
 [![](https://data.jsdelivr.com/v1/package/npm/simple-tooltips/badge)](https://www.jsdelivr.com/package/npm/simple-tooltips)
 # Simple-Tooltips
 Very easy to use CSS-only tooltips.
