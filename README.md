@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/simple-tooltips.png)](https://nodei.co/npm/simple-tooltips/)
+
 [![](https://data.jsdelivr.com/v1/package/npm/simple-tooltips/badge)](https://www.jsdelivr.com/package/npm/simple-tooltips)
 # Simple-Tooltips
 Very easy to use CSS-only tooltips.
@@ -23,7 +25,7 @@ or
 and use it like this
 
 ```html
-<button role="tooltip" data-stt-text="Super simple awesome Tooltip!">This is a <b>Tooltip</b> Button! <i>Hover me!</i></button>
+<button data-stt aria-label="Super simple awesome Tooltip!">This is a <b>Tooltip</b> Button! <i>Hover me!</i></button>
 ```
 
 ## Preview
