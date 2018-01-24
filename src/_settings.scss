@@ -2,8 +2,9 @@
 $simple-tooltip-prefix: stt !default;
 $simple-tooltip-color: #1e2b3b !default;
 $simple-tooltip-bg-color: white !default;
-$simple-tooltip-border-color: #1e2b3b !default;
+$simple-tooltip-border-color: #536877 !default;
 $simple-tooltip-border-width: 1px !default;
+$simple-tooltip-box-shadow: 0 0 10px rgba($black, .4) !default;
 $simple-tooltip-font-size: 1em !default;
 $simple-tooltip-text-align: left !default;
 $simple-tooltip-padding: 1em !default;
@@ -21,4 +22,3 @@ $simple-tooltip-nub-size-val: parseInt($simple-tooltip-nub-size);
 $simple-tooltip-nub-spacing: sqrt($simple-tooltip-nub-size-val * $simple-tooltip-nub-size-val + $simple-tooltip-nub-size-val * $simple-tooltip-nub-size-val) / 2;
 $simple-tooltip-nub-spacing-val: #{$simple-tooltip-nub-spacing}#{$simple-tooltip-nub-size-unit};
 $simple-tooltip-nub-border-radius: 4px !default;
-$simple-tooltip-box-shadow: 0 0 2rem .25rem lighten($simple-tooltip-bg-color, 50%) !default;
