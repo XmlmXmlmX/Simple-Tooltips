@@ -1,58 +1,57 @@
 @import "settings";
-@import "functions";
 @import "keyframes";
-//:not([aria-label='']) 
 [data-#{$simple-tooltip-prefix}] {
-    position: relative;
     box-sizing: border-box;
-    //pointer-events: none;
+    position: relative;
     &::after,
     &::before {
+        box-sizing: border-box;
         display: none;
         position: absolute;
-        top: calc(100% + .5rem);
-        box-sizing: border-box;
         @if ($simple-tooltip-fade) {
             animation: #{$simple-tooltip-prefix}-fade $simple-tooltip-fade-delay ease-in-out;
         }
     }
-    &::after {
-        float: left;
-        content: attr(aria-label);
-        position: absolute;
-        padding: $simple-tooltip-padding;
-        height: auto;
+    &::before {
         background-color: $simple-tooltip-bg-color;
-        color: $simple-tooltip-color;
-        box-shadow: $simple-tooltip-box-shadow;
-        z-index: $simple-tooltip-zindex - 1;
-        font-size: $simple-tooltip-font-size;
-        width: $simple-tooltip-width;
+        border-color: $simple-tooltip-border-color $simple-tooltip-border-color transparent transparent;
+        border-radius: 0 $simple-tooltip-nub-border-radius 0 0;
+        border-style: $simple-tooltip-border-style;
+        border-width: $simple-tooltip-border-width $simple-tooltip-border-width 0 0;
+        content: "";
+        height: $simple-tooltip-nub-size;
+        left: calc(50% - #{$simple-tooltip-nub-size / 2});
+        position: absolute;
+        top: calc(100% + #{$simple-tooltip-space});
+        transform: rotate(-45deg);
+        width: $simple-tooltip-nub-size;
+        z-index: $simple-tooltip-zindex;
+    }
+    &::after {
+        background-color: $simple-tooltip-bg-color;
+        border-color: $simple-tooltip-border-color;
         border-radius: $simple-tooltip-border-radius;
         border-style: $simple-tooltip-border-style;
         border-width: $simple-tooltip-border-width;
-        border-color: $simple-tooltip-border-color;
-        min-width: $simple-tooltip-min-width;
-        left: calc(50% - #{$simple-tooltip-width} / 2);
-        right: 0;
+        box-shadow: $simple-tooltip-box-shadow;
+        color: $simple-tooltip-color;
+        content: attr(aria-label);
+        float: left;
+        font-size: $simple-tooltip-font-size;
+        height: auto;
+        left: calc(50% - #{$simple-tooltip-min-width / 2});
+        line-height: $simple-tooltip-line-height;
         margin: 0;
-        text-align: $simple-tooltip-text-align;
-    }
-    &::before {
-        content: "";
-        border-style: $simple-tooltip-border-style;
-        height: $simple-tooltip-nub-size;
-        width: $simple-tooltip-nub-size;
-        top: calc(100% + 2px);
-        background-color: $simple-tooltip-bg-color;
-        //background-image: repeating-linear-gradient(45deg, transparent, transparent calc(50% - 1px), $simple-tooltip-bg-color 50%, $simple-tooltip-bg-color 100%);
-        border-radius: 0 $simple-tooltip-nub-border-radius 0 0;
-        transform: rotate(-45deg);
-        border-color: $simple-tooltip-border-color $simple-tooltip-border-color transparent transparent;
-        border-width: $simple-tooltip-border-width $simple-tooltip-border-width 0 0;
-        left: calc(50% - #{$simple-tooltip-nub-size} / 2);
-        z-index: $simple-tooltip-zindex;
+        padding: $simple-tooltip-padding;
         position: absolute;
+        right: 0;
+        text-align: $simple-tooltip-text-align;
+        top: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
+        white-space: pre-wrap;
+        min-width: $simple-tooltip-min-width;
+        max-width: $simple-tooltip-max-width;
+        width: $simple-tooltip-min-width;
+        z-index: $simple-tooltip-zindex - 1;
     }
     &:hover,
     &:focus,
@@ -79,101 +78,178 @@
     }
 }
 
-[data-#{$simple-tooltip-prefix}-position=top] {
-    &::after {
-        top: -100%;
-        bottom: auto;
-        height: auto;
-        width: $simple-tooltip-width;
-        margin: -#{$simple-tooltip-nub-size - 2} 0 0 0;
-    }
+[data-#{$simple-tooltip-prefix}-orientation="n"] {
     &::before {
+        top: auto;
+        bottom: calc(100% + #{$simple-tooltip-space});
         transform: rotate(135deg);
-        left: calc(50% - #{$simple-tooltip-nub-size} / 2);
-        top: auto;
-        bottom: calc(100% + 2px);
-    }
-}
-
-[data-#{$simple-tooltip-prefix}-position=right],
-[data-#{$simple-tooltip-prefix}-position=left] {
-    &::after,
-    &::before {
-        top: $simple-tooltip-vertical-gap;
-        left: 100%;
-        right: auto;
-    }
-}
-
-[data-#{$simple-tooltip-prefix}-position=right] {
-    &::after {
-        margin: 0 0 0 #{$simple-tooltip-nub-spacing-val};
-        height: auto;
-        line-height: 1rem;
-        right: 100%;
-    }
-    &::before {
-        transform: rotate(-135deg);
-        left: calc(100% + 2px);
-        top: auto;
-        bottom: calc(50% - #{$simple-tooltip-nub-size} / 2);
-    }
-}
-
-[data-#{$simple-tooltip-prefix}-position=left] {
-    &::after,
-    &::before {
-        left: auto;
     }
     &::after {
-        margin: 0 #{$simple-tooltip-nub-spacing-val} 0 0;
-        height: auto;
-        line-height: 1rem;
-        right: 100%;
-    }
-    &::before {
-        transform: rotate(45deg);
-        right: calc(100% + 2px);
         top: auto;
-        bottom: calc(50% - #{$simple-tooltip-nub-size} / 2);
+        bottom: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=left] {
+[data-#{$simple-tooltip-prefix}-orientation="ne"] {
+    &::before {
+        top: auto;
+        bottom: calc(100% + #{$simple-tooltip-space});
+        transform: rotate(135deg);
+    }
     &::after {
+        top: auto;
         left: 0;
         right: auto;
+        bottom: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=center] {
+[data-#{$simple-tooltip-prefix}-orientation="nw"] {
+    &::before {
+        top: auto;
+        bottom: calc(100% + #{$simple-tooltip-space});
+        transform: rotate(135deg);
+    }
     &::after {
-        left: calc(50% - #{$simple-tooltip-width} / 2);
+        top: auto;
+        right: 0;
+        left: auto;
+        bottom: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=right] {
+[data-#{$simple-tooltip-prefix}-orientation="en"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size} / 2);
+        left: calc(100% + #{$simple-tooltip-space});
+        top: auto;
+        transform: rotate(225deg);
+    }
+    &::after {
+        right: auto;
+        left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
+        top: auto;
+        bottom: 0;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-orientation="e"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size / 2});
+        left: calc(100% + #{$simple-tooltip-space});
+        top: auto;
+        transform: rotate(225deg);
+    }
+    &::after {
+        right: auto;
+        left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
+        bottom: calc(100% - ((#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height}));
+        height: auto;
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        width: auto;
+        top: auto;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-orientation="es"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size} / 2);
+        left: calc(100% + #{$simple-tooltip-space});
+        top: auto;
+        transform: rotate(225deg);
+    }
+    &::after {
+        right: auto;
+        left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
+        top: 0;
+        bottom: auto;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-orientation="se"] {
+    &::after {
+        right: auto;
+        left: 0;
+        bottom: auto;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-orientation="sw"] {
     &::after {
         right: 0;
         left: auto;
+        bottom: auto;
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=top] {
+[data-#{$simple-tooltip-prefix}-orientation="ws"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size / 2});
+        right: calc(100% + #{$simple-tooltip-space});
+        left: auto;
+        top: auto;
+        transform: rotate(45deg);
+    }
     &::after {
+        left: auto;
+        right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
         top: 0;
+        bottom: auto;
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=middle] {
+[data-#{$simple-tooltip-prefix}-orientation="w"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size / 2});
+        right: calc(100% + #{$simple-tooltip-space});
+        left: auto;
+        top: auto;
+        transform: rotate(45deg);
+    }
     &::after {
-        top: $simple-tooltip-vertical-gap;
+        left: auto;
+        right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
+        bottom: calc(100% - ((#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height}));
+        height: auto;
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        top: auto;
     }
 }
 
-[data-#{$simple-tooltip-prefix}-align=bottom] {
+[data-#{$simple-tooltip-prefix}-orientation="wn"] {
+    &::before {
+        bottom: calc(50% - #{$simple-tooltip-nub-size / 2});
+        right: calc(100% + #{$simple-tooltip-space});
+        left: auto;
+        top: auto;
+        transform: rotate(45deg);
+    }
     &::after {
+        left: auto;
+        right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
         bottom: 0;
         top: auto;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-text-align="left"] {
+    &::after {
+        text-align: left;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-text-align="center"] {
+    &::after {
+        text-align: center;
+    }
+}
+
+[data-#{$simple-tooltip-prefix}-text-align="right"] {
+    &::after {
+        text-align: right;
     }
 }
