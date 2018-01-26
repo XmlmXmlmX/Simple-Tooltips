@@ -143,13 +143,12 @@
     &::after {
         right: auto;
         left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
-        bottom: calc(100% - ((#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height}));
-        height: auto;
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        width: auto;
-        top: auto;
+        bottom: auto;
+        top: calc(50% - (#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height} / 2);
+        height: calc(#{$simple-tooltip-padding} * 2 + #{$simple-tooltip-line-height});
     }
 }
 
@@ -211,12 +210,12 @@
     &::after {
         left: auto;
         right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
-        bottom: calc(100% - ((#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height}));
-        height: auto;
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        top: auto;
+        bottom: auto;
+        top: calc(50% - (#{$simple-tooltip-padding} * 2) + #{$simple-tooltip-line-height} / 2);
+        height: calc(#{$simple-tooltip-padding} * 2 + #{$simple-tooltip-line-height});
     }
 }
 
