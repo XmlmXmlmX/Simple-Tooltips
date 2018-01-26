@@ -1,6 +1,22 @@
 body {
-    margin: 2rem;
+    width: 100%;
     font-family: sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+section[role=main] {
+    width: calc(100% - 20rem);
+    margin: 5% auto;
+}
+
+table {
+    td {
+        text-align: center;
+    }
 }
 
 button {
@@ -10,29 +26,5 @@ button {
     margin: .5rem;
     border-radius: .125em;
     outline: none;
-    &.btn-type-a,
-    & {
-        background-color: #3498db;
-    }
-    &.btn-type-b {
-        background-color: #1abc9c;
-    }
-    &.btn-type-c {
-        background-color: #f39c12;
-    }
-    &.btn-type-d {
-        background-color: #9b59b6;
-    }
-    &.btn-type-e {
-        background-color: #e74c3c;
-    }
-    &.btn-type-f {
-        background-color: #95a5a6;
-    }
-    &.btn-type-g {
-        background-color: #2ecc71;
-    }
-    &.btn-type-h {
-        background-color: #f1c40f;
-    }
+    background: #1abc9c;
 }

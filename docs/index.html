@@ -5,28 +5,79 @@
     <meta charset="utf-8" />
     <title>Simple Tooltips</title>
     <link rel="stylesheet" href="preview.css" />
-    <!--<link rel="stylesheet" href="../dist/simple-tooltips.css" />-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-tooltips@1.1.0/dist/simple-tooltips.css" />
+    <link rel="stylesheet" href="../dist/simple-tooltips.css" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-tooltips@1.1.0/dist/simple-tooltips.css" />-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
 </head>
 
 <body>
-    <h1>Simple Tooltips</h1>
-    <h2>Examples</h2>
-    <section class="buttons">
-        <button data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!">This is a <b>Tooltip</b> Button! <i>Hover me!</i></button>
-        <button class="btn-type-g" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-align="left">data-stt-align="left"</button>
-        <button class="btn-type-f" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-align="right">data-stt-align="right"</button>
-        <button class="btn-type-d" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-sst-align="left"><i class="fa fa-exclamation-triangle"></i></button>
-        <button class="btn-type-e" data-stt aria-haspopup="true" aria-label="Much more text... Lorem Lorem Lorem Ipsum!" data-stt aria-haspopup="true" data-stt-position="right">data-stt-position="right"</button>
-        <button class="btn-type-f" data-stt aria-haspopup="true" aria-label="On the left" data-stt aria-haspopup="true" data-stt-position="left">data-stt-position="left"</button>
-        <button class="btn-type-a" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="top">data-stt-position="top"</button>
-        <button class="btn-type-b" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="top" data-stt aria-haspopup="true" data-stt-align="right">data-stt-position="top" data-stt-align="right"</button>
-        <button class="btn-type-g" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="top" data-stt aria-haspopup="true" data-stt-align="left">data-stt-position="top" data-stt-align="left"</button>
-        <button class="btn-type-h" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="bottom" data-stt aria-haspopup="true" data-stt-align="right"><i class="fa fa-info-circle"></i></button>
-        <button class="btn-type-d" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="bottom">data-stt-position="bottom"</button>
-        <button class="btn-type-e" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="right">data-stt-position="right"</button>
-        <button class="btn-type-a" data-stt aria-haspopup="true" aria-label="Super simple awesome Tooltip!" data-stt aria-haspopup="true" data-stt-position="right" data-stt aria-haspopup="true" data-stt-align="top">data-stt-position="right" data-stt-align="top"</button>
+    <section role="main">
+        <h1>Simple Tooltips</h1>
+        <h2>Orientation</h2>
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="nw">North<br />West</button>
+                </td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="n">North</button>
+                </td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="ne">North<br />East</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="wn">West<br />North</button>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="en">East<br />North</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="w">West</button>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="e">East</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="ws">West<br />South</button>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="es">East<br />South</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="sw">South<br />West</button>
+                </td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!">South<br />(Default)</button>
+                </td>
+                <td>
+                    <button role="tooltip" data-stt aria-label="Hello World!" data-stt-orientation="se">South<br />East</button>
+                </td>
+            </tr>
+        </table>
+        <script src="https://gist.github.com/XmlmXmlmX/93ddb1ad2fbb06b430784cc57a049ae2.js"></script>
+
+        <h2>Content</h2>
+        <button role="tooltip" data-stt aria-label="&bull; One&#010;&bull; Two&#010;&bull; Three" data-stt-text-align="left">Pre-Wrapped Content</button>
+        <script src="https://gist.github.com/XmlmXmlmX/3ec408d050391e9545f835c6b153fc8d.js"></script>
     </section>
 </body>
 
