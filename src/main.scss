@@ -98,7 +98,7 @@
     }
     &::after {
         top: auto;
-        left: 0;
+        left: calc(50% - #{$simple-tooltip-nub-offset});
         right: auto;
         bottom: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
     }
@@ -112,7 +112,7 @@
     }
     &::after {
         top: auto;
-        right: 0;
+        right: calc(50% - #{$simple-tooltip-nub-offset});
         left: auto;
         bottom: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
     }
@@ -129,7 +129,7 @@
         right: auto;
         left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
         top: auto;
-        bottom: 0;
+        bottom: calc(50% - #{$simple-tooltip-nub-offset});
     }
 }
 
@@ -162,7 +162,7 @@
     &::after {
         right: auto;
         left: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
-        top: 0;
+        top: calc(50% - #{$simple-tooltip-nub-offset});
         bottom: auto;
     }
 }
@@ -170,14 +170,14 @@
 [data-#{$simple-tooltip-prefix}-orientation="se"] {
     &::after {
         right: auto;
-        left: 0;
+        left: calc(50% - #{$simple-tooltip-nub-offset});
         bottom: auto;
     }
 }
 
 [data-#{$simple-tooltip-prefix}-orientation="sw"] {
     &::after {
-        right: 0;
+        right: calc(50% - #{$simple-tooltip-nub-offset});
         left: auto;
         bottom: auto;
     }
@@ -194,7 +194,7 @@
     &::after {
         left: auto;
         right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
-        top: 0;
+        top: calc(50% - #{$simple-tooltip-nub-offset});
         bottom: auto;
     }
 }
@@ -230,7 +230,7 @@
     &::after {
         left: auto;
         right: calc(100% + #{$simple-tooltip-nub-size / 2} + #{$simple-tooltip-space});
-        bottom: 0;
+        bottom: calc(50% - #{$simple-tooltip-nub-offset});
         top: auto;
     }
 }
